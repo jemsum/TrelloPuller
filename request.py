@@ -2,6 +2,9 @@ import requests
 from flask import Flask
 app = Flask(__name__)
 
+#TODO need to pull this in from config
+#api_url=somestring
+
 @app.route('/hello')
 def hello_world():
 	return 'hello world!'
@@ -12,7 +15,7 @@ def index():
 
 @app.route('/trello')
 def trello():
-	return requests.get("https://api.trello.com/1/members/me/boards?key=9e1653a1c004bdbd293f9cf2eb88ea30&token=b7321a6f13e34ca5050a7241f8ba64b41f8799245dcf0a9d26dbe6ec2fb50cd8")
+	return requests.get(api_url)
 
 if __name__ == '__main__':
 	app.run(debug=True)
